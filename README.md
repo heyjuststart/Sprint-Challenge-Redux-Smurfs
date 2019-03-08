@@ -23,8 +23,30 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+    The store is redux's convention for global app state, it's a plain javascript object that is used to hold most app
+    state.
+
+    Actions are functions which return an object that describes an action to take on your store.  Redux passes these
+    actions through your reducers and changes the store accordingly.
+
+    A reducer is a function that takes the state (or a piece of the state), and an action.  It will return the next
+    state after the action has been taken.  Typically a reducer contains a switch statement that checks the action.type,
+    and changes state based on that type and whatever other properties the action may have.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+    Application state is larger in scope and relevant to the entire application and how it should behave.  Component
+    state is more local to a small portion of the application which does not need to be seen or manipulated from places
+    other than itself or its children in some rare cases.  Things like form input would have local state in a lot of
+    cases.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+    Redux Thunk is a redux middleware that watches for actions which return functions to pass through redux. It will
+    catch these and run any functions or promises they include, passing redux's dispatch function to them as the first
+    parameter, and getState as the second.  This lets us implement asynchronous logic into our actions which can
+    subsequently dispatch their own actions asynchronously.
 
 ## Project Set Up
 
