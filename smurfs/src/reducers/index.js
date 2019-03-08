@@ -5,7 +5,8 @@ import {
   ADD_SMURF,
   FETCH_SMURFS,
   UPDATE_SMURF,
-  DELETE_SMURF
+  DELETE_SMURF,
+  FETCH_SMURFS_SUCCESS
 } from '../actions';
 
 /*
@@ -38,7 +39,11 @@ const initialState = {
 */
 
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
+    case FETCH_SMURFS:
+      return { ...state, fetchingSmurfs: true };
+    case FETCH_SMURFS_SUCCESS:
+      return { ...state, smurfs: action.payload, fetchingSmurfs: false };
     default:
       return state;
   }
