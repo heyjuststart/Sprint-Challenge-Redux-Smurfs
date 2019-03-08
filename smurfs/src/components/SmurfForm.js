@@ -49,7 +49,7 @@ const SmurfForm = ({ onSubmit, smurf }) => {
         placeholder="height"
         autoComplete="off"
       />
-      <button type="submit">Add Smurf</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };
