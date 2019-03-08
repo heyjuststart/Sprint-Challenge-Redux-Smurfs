@@ -19,9 +19,11 @@ const SmurfForm = ({ onSubmit, smurf }) => {
       onSubmit={e => {
         e.preventDefault();
         onSubmit(newSmurf);
+        setNewSmurf(initialNewSmurf);
       }}
     >
       <input
+        id="name"
         type="text"
         name="name"
         value={newSmurf.name}
@@ -30,6 +32,7 @@ const SmurfForm = ({ onSubmit, smurf }) => {
         autoComplete="off"
       />
       <input
+        id="age"
         type="text"
         name="age"
         value={newSmurf.age}
@@ -38,6 +41,7 @@ const SmurfForm = ({ onSubmit, smurf }) => {
         autoComplete="off"
       />
       <input
+        id="height"
         type="text"
         name="height"
         value={newSmurf.height}
@@ -45,6 +49,7 @@ const SmurfForm = ({ onSubmit, smurf }) => {
         placeholder="height"
         autoComplete="off"
       />
+      <button type="submit">Add Smurf</button>
     </form>
   );
 };
